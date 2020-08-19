@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "amfe-flexible";
+import "@/style/common.scss"; /*引入公共样式*/
 
 Vue.config.productionTip = false;
 
