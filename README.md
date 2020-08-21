@@ -8,13 +8,13 @@
     git clone https://github.com/TiffanyHam/admin-management-mobile.git
     ```
 
-- Project setup
+- 打开目录安装依赖
 
     ```node
     npm install
     ```
 
-- Compiles and hot-reloads for development
+- 运行项目
 
     ```node
     npm run serve

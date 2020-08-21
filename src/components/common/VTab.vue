@@ -9,19 +9,16 @@
           :class="[tabIndex == tab.index ? 'tabs-active' : '']"
           @click="changeTab(tab)"
         >
-          {{ tab.name }}
+          <span>{{ tab.name }}</span>
         </div>
       </div>
-    </div>
-    <div class="tabs-content">
-      <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TabBar",
+  name: "VTab",
   props: {
     tabList: Array,
     tabIndex: Number
@@ -30,7 +27,7 @@ export default {
     return {};
   },
   methods: {
-    changeTab: function(tab) {
+    changeTab(tab) {
       this.$emit("changeTab", tab);
     }
   }
@@ -40,9 +37,10 @@ export default {
 <style lang="scss" scoped>
 .my-tabs {
   font-size: 14px;
-  color: #444;
-  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.6);
   background: #fff;
+  height: 80px;
+  line-height: 50px;
 }
 .tabs-bar {
   position: relative;
@@ -50,7 +48,6 @@ export default {
 }
 .tabs-bar-nav {
   display: inline-block;
-  width: 100%;
 }
 .tabs-tab {
   padding: 5px 0;
@@ -58,15 +55,13 @@ export default {
   display: inline-block;
   text-align: center;
   cursor: pointer;
-  width: 25%;
+  width: 70px;
 }
 .tabs-active {
-  border-bottom: 1px solid #007dff;
   color: #007dff;
 }
-.tabs-content {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 30px;
+.tabs-active span {
+  border-bottom: 1px solid #007dff;
+  padding-bottom: 10px;
 }
 </style>

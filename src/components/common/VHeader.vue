@@ -2,28 +2,22 @@
   <div class="header">
     <!-- 返回箭头 -->
     <div class="header_arrow" @click="getBack">
-      <slot name="header_arrow">
-        <img src="@/assets/image/back.png" alt="" slot="header_arrow" />
-      </slot>
+      <img src="@/assets/image/back.png" alt="" />
     </div>
     <!-- 中间标题问题 -->
     <div class="header_title">
-      <slot name="header_title">
-        <span>{{ title }}</span>
-      </slot>
+      <span>{{ title }}</span>
     </div>
     <!-- 点击事件 -->
     <div class="header_setting" @click="setProper">
-      <slot name="header_setting">
-        <img :src="imgSrc" alt="" slot="header_setting" />
-      </slot>
+      <img :src="imgSrc" alt="" slot="header_setting" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header",
+  name: "VHeader",
   props: {
     title: {
       type: String
@@ -50,12 +44,12 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 56px;
   background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 24px;
 }
 // 左中右布局, 直接给中间的盒子设置flex:1;
 .header .header_title {
@@ -63,7 +57,8 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  margin-left: 20px;
+  //justify-content: center;
   align-items: center;
   font-size: 20px;
   color: #333;
