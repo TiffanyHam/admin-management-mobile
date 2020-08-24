@@ -1,6 +1,6 @@
 # admin-management-mobile
 
-## Project setup
+## 部署步骤
 
 - 克隆项目到本地
 

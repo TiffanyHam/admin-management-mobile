@@ -3,7 +3,7 @@
     <div class="module_part">
       <div class="left_part">{{ leftTitle }}</div>
       <div class="right_part">
-        <img src="@/assets/image/open_button.png" alt="" />
+        <v-switch :isOff="on"></v-switch>
       </div>
     </div>
     <div class="module_text">{{ text }}</div>

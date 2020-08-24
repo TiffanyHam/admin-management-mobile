@@ -14,7 +14,8 @@
       leftTitle="地图保存（Beta）"
       rightBtnText="保存"
       text="机器人可自动保存地图并分区，您可以进行地图管理等相关功能"
-    ></v-module>
+    >
+    </v-module>
     <!--button -->
     <v-button type="warning" :clickEvent="clickEvent"></v-button>
     <!-- Dialog -->
