@@ -34,3 +34,52 @@
 
 ## 项目目录结构
 
+```javascript
+|-- admin-management-mobile
+    |-- .browserslistrc
+    |-- .eslintrc.js
+    |-- .gitignore
+    |-- babel.config.js
+    |-- jest.config.js
+    |-- package-lock.json
+    |-- package.json
+    |-- README.md
+    |-- vue.config.js
+    |-- public
+    |   |-- favicon.ico
+    |   |-- index.html
+    |-- src
+    |   |-- App.vue
+    |   |-- main.js
+    |   |-- assets
+    |   |   |-- logo.png
+    |   |   |-- image
+    |   |       |-- back.png
+    |   |       |-- open_button.png
+    |   |       |-- setting.png
+    |   |-- components
+    |   |   |-- Four.vue
+    |   |   |-- index.js
+    |   |   |-- One.vue
+    |   |   |-- Three.vue
+    |   |   |-- Two.vue
+    |   |   |-- common
+    |   |       |-- VButton.vue
+    |   |       |-- VDialog.vue
+    |   |       |-- VHeader.vue
+    |   |       |-- VModule.vue
+    |   |       |-- VTab.vue
+    |   |-- router
+    |   |   |-- index.js
+    |   |-- store
+    |   |   |-- index.js
+    |   |-- style
+    |   |   |-- common.scss
+    |   |-- views
+    |       |-- About.vue
+    |       |-- Home.vue
+    |-- tests
+        |-- unit
+            |-- example.spec.js
+
+```
