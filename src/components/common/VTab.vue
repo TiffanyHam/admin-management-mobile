@@ -39,18 +39,22 @@ export default {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   background: #fff;
-  height: 80px;
+  height: 50px;
   line-height: 50px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
 }
-.tabs-bar {
-  position: relative;
-  padding: 5px 0;
-}
+// .tabs-bar {
+//   position: relative;
+//   padding: 5px 0;
+// }
 .tabs-bar-nav {
   display: inline-block;
 }
 .tabs-tab {
-  padding: 5px 0;
+  // padding: 5px 0;
   position: relative;
   display: inline-block;
   text-align: center;
