@@ -1,11 +1,14 @@
 <template>
-  <button :class="`btn btn-${type}`" @click="clickEvent">测试按钮</button>
+  <div :class="`btn btn-${type}`" @click="clickEvent">{{ btnText }}</div>
 </template>
 
 <script>
 export default {
   name: "VButton",
   props: {
+    btnText: {
+      type: String
+    },
     type: {
       type: String,
       default: "normal"
@@ -19,19 +22,18 @@ export default {
 
 <style lang="scss" scoped>
 .btn {
-  padding: 0 16px;
+  width: 160px;
   height: 40px;
   line-height: 40px;
-  text-align: center;
   font-size: 16px;
-  color: #333333;
-  &-warning {
-    color: #ffffff;
-    background-color: #ffae00;
+  border-radius: 30px;
+  margin: 0 auto;
+  color: #007dff;
+  &-primary {
+    background: rgb(0, 0, 0, 0.05);
   }
-  &-danger {
-    color: #ffffff;
-    background-color: red;
+  &-others {
+    background: rgb(0, 0, 0, 0.5);
   }
 }
 </style>

@@ -7,7 +7,6 @@
       :hasIcon="true"
       :settingEvent="settingEvent"
     ></v-header>
-
     <!-- Tabs -->
     <v-tab :tabList="tabList" :tabIndex="tabIndex" @changeTab="changeTab">
     </v-tab>
@@ -30,7 +29,10 @@
       <p>87<span>%</span></p>
       <p>{{ tabname }}性能完好，可以继续使用</p>
     </div>
-    <div class="sieve_btn">添加</div>
+    <!--button -->
+    <div class="sieve_btn">
+      <v-button type="primary " :clickEvent="add" btnText="添加"></v-button>
+    </div>
   </div>
 </template>
 <script>
@@ -61,7 +63,8 @@ export default {
       this.tabIndex = tab.index;
       this.tabname = tab.name;
     },
-    settingEvent() {}
+    settingEvent() {},
+    add() {}
   },
   created() {
     this.iconUrl = require("@/assets/image/setting.png");
@@ -100,14 +103,6 @@ export default {
   margin-bottom: 100px;
 }
 .sieve_btn {
-  width: 160px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 16px;
-  background: rgb(0, 0, 0, 0.05);
-  color: #007dff;
-  border-radius: 30px;
-  margin: 0 auto;
   margin-bottom: 26px;
 }
 </style>
