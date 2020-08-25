@@ -1,8 +1,20 @@
 <template>
   <div class="home">
     <!-- Header -->
-    <v-header title="清易扫地机机器人" :imgSrc="imgUrl" @operation="getProper">
-    </v-header>
+    <!-- <v-header
+      pageName="清易扫地机机器人"
+      :iconUrl="iconUrl"
+      @operation="getProper"
+      :hasIcon="true"
+    >
+    </v-header> -->
+    <v-header
+      pageName="清易扫地机机器人"
+      :iconUrl="iconUrl"
+      @operation="getProper"
+      :hasIcon="true"
+    ></v-header>
+
     <!-- Tabs -->
     <v-tab :tabList="tabList" :tabIndex="tabIndex" @changeTab="changeTab">
       <!-- <keep-alive>
@@ -20,7 +32,7 @@
     <v-button type="warning" :clickEvent="clickEvent"></v-button>
     <!-- Dialog -->
     <v-dialog
-      text="充电座在禁区/虚拟墙内，继续保存可能无法回充"
+      dialogContent="充电座在禁区/虚拟墙内，继续保存可能无法回充"
       leftBtnText="不保存"
       rightBtnText="保存"
       :showDialog="dialog"
@@ -31,6 +43,7 @@
 </template>
 
 <script>
+import { info, tabConstant } from "@/api/index";
 // @ is an alias to /src
 //import vHeader from "@/components/common/HeaderTop";
 //import vTab from "@/components/common/TabBar";
@@ -51,38 +64,59 @@ export default {
   //   },
   data() {
     return {
-      imgUrl: "",
+      iconUrl: "",
       dialog: false,
       tabIndex: 0,
+      tabList: []
       //currentContent: "one",
-      tabList: [
-        {
-          index: 0,
-          name: "滤网"
-          //   component: "one"
-        },
-        {
-          index: 1,
-          name: "边刷"
-          //   component: "two"
-        },
-        {
-          index: 2,
-          name: "中刷"
-          //  component: "three"
-        },
-        {
-          index: 3,
-          name: "传感器"
-          // component: "four"
-        }
-      ]
+      //   tabList: [
+      //     {
+      //       index: 0,
+      //       name: "滤网"
+      //       //   component: "one"
+      //     },
+      //     {
+      //       index: 1,
+      //       name: "边刷"
+      //       //   component: "two"
+      //     },
+      //     {
+      //       index: 2,
+      //       name: "中刷"
+      //       //  component: "three"
+      //     },
+      //     {
+      //       index: 3,
+      //       name: "传感器"
+      //       // component: "four"
+      //     }
+      //   ]
     };
   },
   created() {
-    this.imgUrl = require("@/assets/image/setting.png");
+    this.iconUrl = require("@/assets/image/setting.png");
   },
   methods: {
+    //测试接口
+    getMessage() {
+      let that = this;
+      info().then(res => {
+        const { code, data = {} } = res.data;
+        if (code === "D00000") {
+          that.tableData = data.list;
+        }
+      });
+    },
+    //Tabs
+    getTabs() {
+      let that = this;
+      tabConstant().then(res => {
+        const { code, content = {} } = res.data;
+        if (code === that.GLOBAL.CODE.SUCCESS) {
+          this.tabList = content.tabsList;
+        }
+      });
+    },
     getProper() {
       // 点击事件操作
     },
@@ -101,8 +135,8 @@ export default {
       this.dialog = true;
     }
   },
-  mounted() {}
+  mounted() {
+    this.getTabs();
+  }
 };
 </script>
-
-<style lang="scss"></style>

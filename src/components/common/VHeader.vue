@@ -2,15 +2,15 @@
   <div class="header">
     <!-- 返回箭头 -->
     <div class="header_arrow" @click="getBack">
-      <img src="@/assets/image/back.png" alt="" />
+      <img src="@/assets/image/icon-left.png" alt />
     </div>
     <!-- 中间标题问题 -->
     <div class="header_title">
-      <span>{{ title }}</span>
+      <span>{{ pageName }}</span>
     </div>
     <!-- 点击事件 -->
-    <div class="header_setting" @click="setProper">
-      <img :src="imgSrc" alt="" slot="header_setting" />
+    <div class="header_setting" @click="setProper" v-if="hasIcon">
+      <img :src="iconUrl" alt />
     </div>
   </div>
 </template>
@@ -19,11 +19,17 @@
 export default {
   name: "VHeader",
   props: {
-    title: {
+    pageName: {
       type: String
     },
-    imgSrc: {
+    iconUrl: {
       type: String
+    },
+    hasIcon: {
+      type: Boolean,
+      default() {
+        return false;
+      }
     }
   },
   methods: {

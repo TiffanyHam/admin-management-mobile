@@ -1,7 +1,7 @@
 <template>
   <div class="model_dialog" v-show="showDialog">
     <div class="dialog_content">
-      <div class="dialog_text">{{ text }}</div>
+      <div class="dialog_text">{{ dialogContent }}</div>
       <div class="dialog_button">
         <div class="left_button" @click="leftBtnEvent">{{ leftBtnText }}</div>
         <div class="right_button" @click="rightBtnEvent">
@@ -14,6 +14,17 @@
 <script>
 export default {
   name: "VDialog",
+  /**
+   *页面弹窗需要接收的参数
+   *
+   *@param {String} dialogContent 弹窗内容
+   *@param {Boolean} showDialog 是否显示弹窗
+   *@param {String} leftBtnText 弹窗左边按钮文字
+   *@param {String} rightBtnText 弹窗右边按钮文字
+   *@param {Function} leftBtnEvent 弹窗左边按钮事件
+   *@param {Function} rightBtnEvent 弹窗右边按钮事件
+   *
+   */
   data() {
     return {};
   },
@@ -22,7 +33,7 @@ export default {
       type: Boolean,
       default: false
     },
-    text: {
+    dialogContent: {
       type: String,
       default: ""
     },
@@ -40,10 +51,6 @@ export default {
     rightBtnEvent: {
       type: Function
     }
-  },
-  methods: {},
-  mounted() {
-    //  this.leftBtnEvent();
   }
 };
 </script>
@@ -56,8 +63,6 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 999;
-  //visibility: hidden;
-  //pointer-events: none;
 }
 .active {
   visibility: visible;
