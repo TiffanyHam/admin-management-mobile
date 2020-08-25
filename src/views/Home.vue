@@ -1,18 +1,11 @@
 <template>
   <div class="home">
     <!-- Header -->
-    <!-- <v-header
-      pageName="清易扫地机机器人"
-      :iconUrl="iconUrl"
-      @operation="getProper"
-      :hasIcon="true"
-    >
-    </v-header> -->
     <v-header
       pageName="清易扫地机机器人"
       :iconUrl="iconUrl"
-      @operation="getProper"
       :hasIcon="true"
+      :settingEvent="settingEvent"
     ></v-header>
 
     <!-- Tabs -->
@@ -117,13 +110,13 @@ export default {
         }
       });
     },
-    getProper() {
+    settingEvent() {
       // 点击事件操作
     },
     // 切换选项卡
     changeTab(tab) {
       this.tabIndex = tab.index;
-      this.currentContent = tab.component;
+      //this.currentContent = tab.component;
     },
     leftBtnEvent() {
       this.dialog = false;

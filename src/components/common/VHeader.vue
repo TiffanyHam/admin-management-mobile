@@ -9,7 +9,7 @@
       <span>{{ pageName }}</span>
     </div>
     <!-- 点击事件 -->
-    <div class="header_setting" @click="setProper" v-if="hasIcon">
+    <div class="header_setting" @click="settingEvent" v-if="hasIcon">
       <img :src="iconUrl" alt />
     </div>
   </div>
@@ -30,15 +30,15 @@ export default {
       default() {
         return false;
       }
+    },
+    settingEvent: {
+      type: Function
     }
   },
   methods: {
     // 返回上一页
     getBack() {
       this.$router.back(-1);
-    },
-    setProper(event) {
-      this.$emit("operation", event);
     }
   }
 };
